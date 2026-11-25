@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Люаза Булахова (Беккаева) — страница памяти мамы</title>
+<meta name="description" content="Страница памяти Люазы Булаховой (Беккаевой): фотографии разных лет под симфонию ми минор.">
+<link rel="canonical" href="https://bulakhov.github.io/mama/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Люаза Булахова (Беккаева)">
+<meta property="og:description" content="Страница памяти Люазы Булаховой (Беккаевой): фотографии разных лет под симфонию ми минор.">
+<meta property="og:url" content="https://bulakhov.github.io/mama/">
+<meta property="og:image" content="https://bulakhov.github.io/mama/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Люаза Булахова (Беккаева) — страница памяти", "description": "Страница памяти Люазы Булаховой (Беккаевой): фотографии разных лет под симфонию ми минор.", "inLanguage": "ru", "url": "https://bulakhov.github.io/mama/", "image": "https://bulakhov.github.io/mama/og.jpg", "about": {"@type": "Person", "name": "Люаза Булахова", "alternateName": ["Люаза Беккаева", "Люаза Булахова (Беккаева)"], "image": "https://bulakhov.github.io/mama/og.jpg"}}</script>
+<style>
+  :root { --ink: #ece6da; --dim: #9a9285; --line: #6b6459; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #000; color: var(--ink); overflow: hidden;
+               font-family: Georgia, 'Times New Roman', serif; }
+  #stage { position: fixed; inset: 0; background: #000; cursor: pointer; }
+  .slide { position: absolute; inset: 0; overflow: hidden; opacity: 0; will-change: opacity; }
+  .slide .bg { position: absolute; inset: -6%; width: 112%; height: 112%; object-fit: cover;
+               filter: blur(28px) brightness(.42); }
+  .slide .fg { position: absolute; inset: 0; width: 100%; height: 100%; will-change: transform; }
+  #vignette { position: fixed; inset: 0; pointer-events: none;
+              background: radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,.42) 100%); }
+  #title { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center;
+           justify-content: center; text-align: center; pointer-events: none; opacity: 0; padding: 0 16px; }
+  .big { font-style: italic; font-size: clamp(56px, 13vh, 150px); line-height: 1; }
+  .rule { width: clamp(90px, 14vh, 160px); height: 1px; background: var(--line); margin: 3.2vh 0 2.6vh; }
+  .small { font-size: clamp(16px, 3.2vh, 34px); color: #c9c2b5; letter-spacing: .02em; margin: 0; font-weight: normal; }
+  .lead { margin: 2.2vh 0 0; color: var(--dim); font-size: clamp(14px, 2vh, 18px); max-width: 34em; }
+  #start { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center;
+           justify-content: center; text-align: center; background: #000; z-index: 5; padding: 0 16px; }
+  #start button { margin-top: 6vh; font: inherit; font-size: clamp(16px, 2.4vh, 22px); color: var(--ink);
+                  background: transparent; border: 1px solid var(--line); padding: 14px 34px; cursor: pointer;
+                  letter-spacing: .06em; transition: background .3s, color .3s; }
+  #start button:hover, #start button:focus-visible { background: var(--ink); color: #000; outline: none; }
+  #start .note { margin-top: 2.4vh; color: var(--dim); font-size: 14px; }
+  #bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 26px 16px 14px; z-index: 4;
+         background: linear-gradient(transparent, rgba(0,0,0,.72)); opacity: 0; transition: opacity .4s;
+         display: flex; align-items: center; gap: 14px; font-size: 14px; color: #d8d1c4;
+         font-variant-numeric: tabular-nums; }
+  body.ui #bar { opacity: 1; }
+  body:not(.ui) #stage { cursor: none; }
+  #bar button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 6px 8px;
+                font-size: 18px; min-width: 36px; }
+  #track { position: relative; flex: 1; height: 22px; cursor: pointer; }
+  #track::before { content: ''; position: absolute; left: 0; right: 0; top: 10px; height: 2px; background: #4a453d; }
+  #fill { position: absolute; left: 0; top: 10px; height: 2px; width: 0; background: var(--ink); }
+  .tick { position: absolute; top: 5px; width: 1px; height: 12px; background: #8a8377; }
+  .tick span { position: absolute; top: -17px; left: -4px; font-size: 11px; color: var(--dim); }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div id="vignette"></div>
+<div id="title"><div class="big"></div><div class="rule"></div><div class="small"></div></div>
+<div id="bar">
+  <button id="pp" aria-label="Пауза или продолжить">❚❚</button>
+  <span id="time">0:00</span>
+  <div id="track"><div id="fill"></div></div>
+  <span id="total"></span>
+  <button id="fs" aria-label="На весь экран">⛶</button>
+</div>
+<div id="start">
+  <div class="big">Мама</div><div class="rule"></div>
+  <h1 class="small">Люаза Булахова (Беккаева)</h1>
+  <p class="lead">Страница памяти. Фотографии разных лет под симфонию ми минор.</p>
+  <button id="go">Смотреть</button>
+  <div class="note">Со звуком · 13 минут · пробел — пауза, стрелки — листать фото</div>
+</div>
+<audio id="au" src="symphony-e-minor-live.mp3" preload="auto"></audio>
+<script>
+const D = {"duration": 796.76, "bounds": [0.0, 212.0, 442.0, 586.0], "grade": [[0, 0.85], [211.0, 0.85], [213.0, 1.0], [441.0, 1.0], [443.0, 1.08], [585.0, 1.08], [587.0, 0.9], [706.76, 0.9], [776.76, 0.35], [796.76, 0.2]], "title": {"big": "Мама", "small": "Люаза Булахова (Беккаева)", "t": [0.8, 2.3, 4.6, 6.0]}, "slides": [{"f": "photos/p_272.jpg", "t0": 6.0, "t1": 16.61, "fin": 1.2, "fout": 0, "m": 0, "amp": 0.12, "fo": null}, {"f": "photos/p_261.jpg", "t0": 15.01, "t1": 22.74, "fin": 1.6, "fout": 0, "m": 1, "amp": 0.12, "fo": null}, {"f": "photos/p_276.jpg", "t0": 21.14, "t1": 28.871, "fin": 1.6, "fout": 0, "m": 2, "amp": 0.12, "fo": null}, {"f": "photos/p_251.jpg", "t0": 27.271, "t1": 35.002, "fin": 1.6, "fout": 0, "m": 3, "amp": 0.12, "fo": null}, {"f": "photos/p_277.jpg", "t0": 33.402, "t1": 41.133, "fin": 1.6, "fout": 0, "m": 4, "amp": 0.12, "fo": null}, {"f": "photos/p_275.jpg", "t0": 39.533, "t1": 47.264, "fin": 1.6, "fout": 0, "m": 5, "amp": 0.12, "fo": null}, {"f": "photos/p_278.jpg", "t0": 45.664, "t1": 53.395, "fin": 1.6, "fout": 0, "m": 6, "amp": 0.12, "fo": null}, {"f": "photos/p_269.jpg", "t0": 51.795, "t1": 59.526, "fin": 1.6, "fout": 0, "m": 7, "amp": 0.12, "fo": null}, {"f": "photos/p_262.jpg", "t0": 57.926, "t1": 65.657, "fin": 1.6, "fout": 0, "m": 8, "amp": 0.12, "fo": null}, {"f": "photos/p_268.jpg", "t0": 64.057, "t1": 71.788, "fin": 1.6, "fout": 0, "m": 9, "amp": 0.12, "fo": null}, {"f": "photos/p_273.jpg", "t0": 70.188, "t1": 77.919, "fin": 1.6, "fout": 0, "m": 10, "amp": 0.12, "fo": null}, {"f": "photos/p_201.jpg", "t0": 76.319, "t1": 84.05, "fin": 1.6, "fout": 0, "m": 11, "amp": 0.12, "fo": null}, {"f": "photos/p_270.jpg", "t0": 82.45, "t1": 90.181, "fin": 1.6, "fout": 0, "m": 12, "amp": 0.12, "fo": null}, {"f": "photos/p_263.jpg", "t0": 88.581, "t1": 96.312, "fin": 1.6, "fout": 0, "m": 13, "amp": 0.12, "fo": null}, {"f": "photos/p_266.jpg", "t0": 94.712, "t1": 102.443, "fin": 1.6, "fout": 0, "m": 14, "amp": 0.12, "fo": [0.5, 0.62]}, {"f": "photos/p_267.jpg", "t0": 100.843, "t1": 108.574, "fin": 1.6, "fout": 0, "m": 15, "amp": 0.12, "fo": null}, {"f": "photos/p_256.jpg", "t0": 106.974, "t1": 114.705, "fin": 1.6, "fout": 0, "m": 16, "amp": 0.12, "fo": [0.5, 0.8]}, {"f": "photos/p_255.jpg", "t0": 113.105, "t1": 120.836, "fin": 1.6, "fout": 0, "m": 17, "amp": 0.12, "fo": null}, {"f": "photos/p_258.jpg", "t0": 119.236, "t1": 126.967, "fin": 1.6, "fout": 0, "m": 18, "amp": 0.12, "fo": null}, {"f": "photos/p_259.jpg", "t0": 125.367, "t1": 133.098, "fin": 1.6, "fout": 0, "m": 19, "amp": 0.12, "fo": null}, {"f": "photos/p_238.jpg", "t0": 131.498, "t1": 139.229, "fin": 1.6, "fout": 0, "m": 20, "amp": 0.12, "fo": null}, {"f": "photos/p_225.jpg", "t0": 137.629, "t1": 145.36, "fin": 1.6, "fout": 0, "m": 21, "amp": 0.12, "fo": null}, {"f": "photos/p_226.jpg", "t0": 143.76, "t1": 151.49, "fin": 1.6, "fout": 0, "m": 22, "amp": 0.12, "fo": null}, {"f": "photos/p_224.jpg", "t0": 149.89, "t1": 157.621, "fin": 1.6, "fout": 0, "m": 23, "amp": 0.12, "fo": null}, {"f": "photos/p_222.jpg", "t0": 156.021, "t1": 163.752, "fin": 1.6, "fout": 0, "m": 24, "amp": 0.12, "fo": null}, {"f": "photos/p_221.jpg", "t0": 162.152, "t1": 169.883, "fin": 1.6, "fout": 0, "m": 25, "amp": 0.12, "fo": null}, {"f": "photos/p_220.jpg", "t0": 168.283, "t1": 176.014, "fin": 1.6, "fout": 0, "m": 26, "amp": 0.12, "fo": null}, {"f": "photos/p_219.jpg", "t0": 174.414, "t1": 182.145, "fin": 1.6, "fout": 0, "m": 27, "amp": 0.12, "fo": null}, {"f": "photos/p_212.jpg", "t0": 180.545, "t1": 188.276, "fin": 1.6, "fout": 0, "m": 28, "amp": 0.12, "fo": null}, {"f": "photos/p_208.jpg", "t0": 186.676, "t1": 194.407, "fin": 1.6, "fout": 0, "m": 29, "amp": 0.12, "fo": null}, {"f": "photos/p_210.jpg", "t0": 192.807, "t1": 200.538, "fin": 1.6, "fout": 0, "m": 30, "amp": 0.12, "fo": null}, {"f": "photos/p_209.jpg", "t0": 198.938, "t1": 206.669, "fin": 1.6, "fout": 0, "m": 31, "amp": 0.12, "fo": null}, {"f": "photos/p_205.jpg", "t0": 205.069, "t1": 212.0, "fin": 1.6, "fout": 1.2, "m": 32, "amp": 0.12, "fo": [0.4, 0.65]}, {"f": "photos/p_236.jpg", "t0": 212.0, "t1": 220.419, "fin": 1.2, "fout": 0, "m": 33, "amp": 0.1, "fo": null}, {"f": "photos/p_245.jpg", "t0": 218.419, "t1": 227.839, "fin": 2.0, "fout": 0, "m": 34, "amp": 0.1, "fo": null}, {"f": "photos/p_215.jpg", "t0": 225.839, "t1": 235.258, "fin": 2.0, "fout": 0, "m": 35, "amp": 0.1, "fo": null}, {"f": "photos/p_065.jpg", "t0": 233.258, "t1": 242.677, "fin": 2.0, "fout": 0, "m": 36, "amp": 0.1, "fo": null}, {"f": "photos/p_064.jpg", "t0": 240.677, "t1": 250.097, "fin": 2.0, "fout": 0, "m": 37, "amp": 0.1, "fo": null}, {"f": "photos/p_062.jpg", "t0": 248.097, "t1": 257.516, "fin": 2.0, "fout": 0, "m": 38, "amp": 0.1, "fo": null}, {"f": "photos/p_059.jpg", "t0": 255.516, "t1": 264.935, "fin": 2.0, "fout": 0, "m": 39, "amp": 0.1, "fo": null}, {"f": "photos/p_057.jpg", "t0": 262.935, "t1": 272.355, "fin": 2.0, "fout": 0, "m": 40, "amp": 0.1, "fo": null}, {"f": "photos/p_060.jpg", "t0": 270.355, "t1": 279.774, "fin": 2.0, "fout": 0, "m": 41, "amp": 0.1, "fo": null}, {"f": "photos/p_050.jpg", "t0": 277.774, "t1": 287.194, "fin": 2.0, "fout": 0, "m": 42, "amp": 0.1, "fo": null}, {"f": "photos/p_049.jpg", "t0": 285.194, "t1": 294.613, "fin": 2.0, "fout": 0, "m": 43, "amp": 0.1, "fo": null}, {"f": "photos/p_051.jpg", "t0": 292.613, "t1": 302.032, "fin": 2.0, "fout": 0, "m": 44, "amp": 0.1, "fo": null}, {"f": "photos/p_044.jpg", "t0": 300.032, "t1": 309.452, "fin": 2.0, "fout": 0, "m": 45, "amp": 0.1, "fo": null}, {"f": "photos/p_093.jpg", "t0": 307.452, "t1": 316.871, "fin": 2.0, "fout": 0, "m": 46, "amp": 0.1, "fo": null}, {"f": "photos/p_091.jpg", "t0": 314.871, "t1": 324.29, "fin": 2.0, "fout": 0, "m": 47, "amp": 0.1, "fo": null}, {"f": "photos/p_094.jpg", "t0": 322.29, "t1": 331.71, "fin": 2.0, "fout": 0, "m": 48, "amp": 0.1, "fo": null}, {"f": "photos/p_092.jpg", "t0": 329.71, "t1": 339.129, "fin": 2.0, "fout": 0, "m": 49, "amp": 0.1, "fo": null}, {"f": "photos/p_026.jpg", "t0": 337.129, "t1": 346.548, "fin": 2.0, "fout": 0, "m": 50, "amp": 0.1, "fo": null}, {"f": "photos/p_032.jpg", "t0": 344.548, "t1": 353.968, "fin": 2.0, "fout": 0, "m": 51, "amp": 0.1, "fo": null}, {"f": "photos/p_133.jpg", "t0": 351.968, "t1": 361.387, "fin": 2.0, "fout": 0, "m": 52, "amp": 0.1, "fo": null}, {"f": "photos/p_134.jpg", "t0": 359.387, "t1": 368.806, "fin": 2.0, "fout": 0, "m": 53, "amp": 0.1, "fo": null}, {"f": "photos/p_135.jpg", "t0": 366.806, "t1": 376.226, "fin": 2.0, "fout": 0, "m": 54, "amp": 0.1, "fo": null}, {"f": "photos/p_033.jpg", "t0": 374.226, "t1": 383.645, "fin": 2.0, "fout": 0, "m": 55, "amp": 0.1, "fo": null}, {"f": "photos/p_020.jpg", "t0": 381.645, "t1": 391.065, "fin": 2.0, "fout": 0, "m": 56, "amp": 0.1, "fo": null}, {"f": "photos/p_130.jpg", "t0": 389.065, "t1": 398.484, "fin": 2.0, "fout": 0, "m": 57, "amp": 0.1, "fo": null}, {"f": "photos/p_131.jpg", "t0": 396.484, "t1": 405.903, "fin": 2.0, "fout": 0, "m": 58, "amp": 0.1, "fo": null}, {"f": "photos/p_181.jpg", "t0": 403.903, "t1": 413.323, "fin": 2.0, "fout": 0, "m": 59, "amp": 0.1, "fo": null}, {"f": "photos/p_098.jpg", "t0": 411.323, "t1": 420.742, "fin": 2.0, "fout": 0, "m": 60, "amp": 0.1, "fo": null}, {"f": "photos/p_023.jpg", "t0": 418.742, "t1": 428.161, "fin": 2.0, "fout": 0, "m": 61, "amp": 0.1, "fo": null}, {"f": "photos/p_024.jpg", "t0": 426.161, "t1": 435.581, "fin": 2.0, "fout": 0, "m": 62, "amp": 0.1, "fo": null}, {"f": "photos/p_138.jpg", "t0": 433.581, "t1": 442.0, "fin": 2.0, "fout": 1.2, "m": 63, "amp": 0.1, "fo": null}, {"f": "photos/p_052.jpg", "t0": 442.0, "t1": 446.189, "fin": 1.2, "fout": 0, "m": 64, "amp": 0.14, "fo": null}, {"f": "photos/p_056.jpg", "t0": 445.389, "t1": 449.979, "fin": 0.8, "fout": 0, "m": 65, "amp": 0.14, "fo": null}, {"f": "photos/p_058.jpg", "t0": 449.179, "t1": 453.768, "fin": 0.8, "fout": 0, "m": 66, "amp": 0.14, "fo": null}, {"f": "photos/p_066.jpg", "t0": 452.968, "t1": 457.558, "fin": 0.8, "fout": 0, "m": 67, "amp": 0.14, "fo": null}, {"f": "photos/p_045.jpg", "t0": 456.758, "t1": 461.347, "fin": 0.8, "fout": 0, "m": 68, "amp": 0.14, "fo": null}, {"f": "photos/p_019.jpg", "t0": 460.547, "t1": 465.137, "fin": 0.8, "fout": 0, "m": 69, "amp": 0.14, "fo": null}, {"f": "photos/p_119.jpg", "t0": 464.337, "t1": 468.926, "fin": 0.8, "fout": 0, "m": 70, "amp": 0.14, "fo": null}, {"f": "photos/p_164.jpg", "t0": 468.126, "t1": 472.716, "fin": 0.8, "fout": 0, "m": 71, "amp": 0.14, "fo": null}, {"f": "photos/p_123.jpg", "t0": 471.916, "t1": 476.505, "fin": 0.8, "fout": 0, "m": 72, "amp": 0.14, "fo": null}, {"f": "photos/p_124.jpg", "t0": 475.705, "t1": 480.295, "fin": 0.8, "fout": 0, "m": 73, "amp": 0.14, "fo": null}, {"f": "photos/p_170.jpg", "t0": 479.495, "t1": 484.084, "fin": 0.8, "fout": 0, "m": 74, "amp": 0.14, "fo": null}, {"f": "photos/p_157.jpg", "t0": 483.284, "t1": 487.874, "fin": 0.8, "fout": 0, "m": 75, "amp": 0.14, "fo": null}, {"f": "photos/p_069.jpg", "t0": 487.074, "t1": 491.663, "fin": 0.8, "fout": 0, "m": 76, "amp": 0.14, "fo": null}, {"f": "photos/p_073.jpg", "t0": 490.863, "t1": 495.453, "fin": 0.8, "fout": 0, "m": 77, "amp": 0.14, "fo": null}, {"f": "photos/p_071.jpg", "t0": 494.653, "t1": 499.242, "fin": 0.8, "fout": 0, "m": 78, "amp": 0.14, "fo": null}, {"f": "photos/p_172.jpg", "t0": 498.442, "t1": 503.032, "fin": 0.8, "fout": 0, "m": 79, "amp": 0.14, "fo": null}, {"f": "photos/p_161.jpg", "t0": 502.232, "t1": 506.821, "fin": 0.8, "fout": 0, "m": 80, "amp": 0.14, "fo": null}, {"f": "photos/p_117.jpg", "t0": 506.021, "t1": 510.611, "fin": 0.8, "fout": 0, "m": 81, "amp": 0.14, "fo": [0.5, 0.3]}, {"f": "photos/p_149.jpg", "t0": 509.811, "t1": 514.4, "fin": 0.8, "fout": 0, "m": 82, "amp": 0.14, "fo": null}, {"f": "photos/p_129.jpg", "t0": 513.6, "t1": 518.189, "fin": 0.8, "fout": 0, "m": 83, "amp": 0.14, "fo": null}, {"f": "photos/p_030.jpg", "t0": 517.389, "t1": 521.979, "fin": 0.8, "fout": 0, "m": 84, "amp": 0.14, "fo": [0.5, 0.62]}, {"f": "photos/p_126.jpg", "t0": 521.179, "t1": 525.768, "fin": 0.8, "fout": 0, "m": 85, "amp": 0.14, "fo": null}, {"f": "photos/p_156.jpg", "t0": 524.968, "t1": 529.558, "fin": 0.8, "fout": 0, "m": 86, "amp": 0.14, "fo": null}, {"f": "photos/p_171.jpg", "t0": 528.758, "t1": 533.347, "fin": 0.8, "fout": 0, "m": 87, "amp": 0.14, "fo": null}, {"f": "photos/p_115.jpg", "t0": 532.547, "t1": 537.137, "fin": 0.8, "fout": 0, "m": 88, "amp": 0.14, "fo": null}, {"f": "photos/p_112.jpg", "t0": 536.337, "t1": 540.926, "fin": 0.8, "fout": 0, "m": 89, "amp": 0.14, "fo": null}, {"f": "photos/p_106.jpg", "t0": 540.126, "t1": 544.716, "fin": 0.8, "fout": 0, "m": 90, "amp": 0.14, "fo": null}, {"f": "photos/p_039.jpg", "t0": 543.916, "t1": 548.505, "fin": 0.8, "fout": 0, "m": 91, "amp": 0.14, "fo": null}, {"f": "photos/p_025.jpg", "t0": 547.705, "t1": 552.295, "fin": 0.8, "fout": 0, "m": 92, "amp": 0.14, "fo": null}, {"f": "photos/p_031.jpg", "t0": 551.495, "t1": 556.084, "fin": 0.8, "fout": 0, "m": 93, "amp": 0.14, "fo": null}, {"f": "photos/p_177.jpg", "t0": 555.284, "t1": 559.874, "fin": 0.8, "fout": 0, "m": 94, "amp": 0.14, "fo": null}, {"f": "photos/p_018.jpg", "t0": 559.074, "t1": 563.663, "fin": 0.8, "fout": 0, "m": 95, "amp": 0.14, "fo": null}, {"f": "photos/p_040.jpg", "t0": 562.863, "t1": 567.453, "fin": 0.8, "fout": 0, "m": 96, "amp": 0.14, "fo": null}, {"f": "photos/p_197.jpg", "t0": 566.653, "t1": 571.242, "fin": 0.8, "fout": 0, "m": 97, "amp": 0.14, "fo": null}, {"f": "photos/p_199.jpg", "t0": 570.442, "t1": 575.032, "fin": 0.8, "fout": 0, "m": 98, "amp": 0.14, "fo": null}, {"f": "photos/p_198.jpg", "t0": 574.232, "t1": 578.821, "fin": 0.8, "fout": 0, "m": 99, "amp": 0.14, "fo": null}, {"f": "photos/p_036.jpg", "t0": 578.021, "t1": 582.611, "fin": 0.8, "fout": 0, "m": 100, "amp": 0.14, "fo": null}, {"f": "photos/p_136.jpg", "t0": 581.811, "t1": 586.0, "fin": 0.8, "fout": 1.2, "m": 101, "amp": 0.14, "fo": null}, {"f": "photos/p_195.jpg", "t0": 586.0, "t1": 594.591, "fin": 1.2, "fout": 0, "m": 102, "amp": 0.1, "fo": null}, {"f": "photos/p_132.jpg", "t0": 592.391, "t1": 602.083, "fin": 2.2, "fout": 0, "m": 103, "amp": 0.1, "fo": null}, {"f": "photos/p_169.jpg", "t0": 599.883, "t1": 609.574, "fin": 2.2, "fout": 0, "m": 104, "amp": 0.1, "fo": null}, {"f": "photos/p_163.jpg", "t0": 607.374, "t1": 617.065, "fin": 2.2, "fout": 0, "m": 105, "amp": 0.1, "fo": null}, {"f": "photos/p_099.jpg", "t0": 614.865, "t1": 624.557, "fin": 2.2, "fout": 0, "m": 106, "amp": 0.1, "fo": null}, {"f": "photos/p_102.jpg", "t0": 622.357, "t1": 632.048, "fin": 2.2, "fout": 0, "m": 107, "amp": 0.1, "fo": null}, {"f": "photos/p_107.jpg", "t0": 629.848, "t1": 639.539, "fin": 2.2, "fout": 0, "m": 108, "amp": 0.1, "fo": null}, {"f": "photos/p_122.jpg", "t0": 637.339, "t1": 647.03, "fin": 2.2, "fout": 0, "m": 109, "amp": 0.1, "fo": null}, {"f": "photos/p_076.jpg", "t0": 644.83, "t1": 654.522, "fin": 2.2, "fout": 0, "m": 110, "amp": 0.1, "fo": null}, {"f": "photos/p_027.jpg", "t0": 652.322, "t1": 662.013, "fin": 2.2, "fout": 0, "m": 111, "amp": 0.1, "fo": null}, {"f": "photos/p_203.jpg", "t0": 659.813, "t1": 669.504, "fin": 2.2, "fout": 0, "m": 112, "amp": 0.1, "fo": null}, {"f": "photos/p_207.jpg", "t0": 667.304, "t1": 676.996, "fin": 2.2, "fout": 0, "m": 113, "amp": 0.1, "fo": null}, {"f": "photos/p_162.jpg", "t0": 674.796, "t1": 684.487, "fin": 2.2, "fout": 0, "m": 114, "amp": 0.1, "fo": null}, {"f": "photos/p_173.jpg", "t0": 682.287, "t1": 691.978, "fin": 2.2, "fout": 0, "m": 115, "amp": 0.1, "fo": null}, {"f": "photos/p_175.jpg", "t0": 689.778, "t1": 699.47, "fin": 2.2, "fout": 0, "m": 116, "amp": 0.1, "fo": null}, {"f": "photos/p_178.jpg", "t0": 697.27, "t1": 706.961, "fin": 2.2, "fout": 0, "m": 117, "amp": 0.1, "fo": null}, {"f": "photos/p_021.jpg", "t0": 704.761, "t1": 714.452, "fin": 2.2, "fout": 0, "m": 118, "amp": 0.1, "fo": null}, {"f": "photos/p_118.jpg", "t0": 712.252, "t1": 721.943, "fin": 2.2, "fout": 0, "m": 119, "amp": 0.1, "fo": null}, {"f": "photos/p_142.jpg", "t0": 719.743, "t1": 729.435, "fin": 2.2, "fout": 0, "m": 120, "amp": 0.1, "fo": null}, {"f": "photos/p_141.jpg", "t0": 727.235, "t1": 736.926, "fin": 2.2, "fout": 0, "m": 121, "amp": 0.1, "fo": null}, {"f": "photos/p_022.jpg", "t0": 734.726, "t1": 744.417, "fin": 2.2, "fout": 0, "m": 122, "amp": 0.1, "fo": null}, {"f": "photos/p_190.jpg", "t0": 742.217, "t1": 751.909, "fin": 2.2, "fout": 0, "m": 123, "amp": 0.1, "fo": null}, {"f": "photos/p_046.jpg", "t0": 749.709, "t1": 759.4, "fin": 2.2, "fout": 0, "m": 124, "amp": 0.1, "fo": null}, {"f": "photos/p_174.jpg", "t0": 757.2, "t1": 769.139, "fin": 2.2, "fout": 0, "m": 125, "amp": 0.1, "fo": null}, {"f": "photos/p_140.jpg", "t0": 766.939, "t1": 780.376, "fin": 2.2, "fout": 0, "m": 126, "amp": 0.1, "fo": null}, {"f": "photos/p_272.jpg", "t0": 778.176, "t1": 792.76, "fin": 2.2, "fout": 3.5, "m": 127, "amp": 0.1, "fo": null}]};
+const $ = id => document.getElementById(id);
+const au = $('au'), stage = $('stage'), live = new Map();
+const fmt = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+$('total').textContent = fmt(D.duration);
+document.querySelector('#title .big').textContent = D.title.big;
+document.querySelector('#title .small').textContent = D.title.small;
+['I', 'II', 'III', 'IV'].forEach((n, i) => {
+  const t = document.createElement('div'); t.className = 'tick';
+  t.style.left = (D.bounds[i] / D.duration * 100) + '%'; t.innerHTML = '<span>' + n + '</span>';
+  $('track').appendChild(t);
+});
+
+function interp(pts, t) {
+  if (t <= pts[0][0]) return pts[0][1];
+  for (let i = 1; i < pts.length; i++) if (t <= pts[i][0]) {
+    const [a, va] = pts[i - 1], [b, vb] = pts[i]; return va + (vb - va) * (t - a) / (b - a);
+  }
+  return pts[pts.length - 1][1];
+}
+
+// Создаёт слой для фото: размытая копия на фон + само фото поверх
+function make(s) {
+  const el = document.createElement('div'); el.className = 'slide';
+  const bg = new Image(), fg = new Image(); bg.className = 'bg'; fg.className = 'fg';
+  bg.src = fg.src = s.f; bg.alt = ''; fg.alt = 'Люаза Булахова (Беккаева)';
+  fg.onload = () => fit(s, fg);
+  el.append(bg, fg); return { el, fg, s };
+}
+// Фото, близкое по форме к экрану, заполняет его целиком; остальные показываются полностью
+function fit(s, fg) {
+  if (!fg.naturalWidth) return;
+  const r = (fg.naturalWidth / fg.naturalHeight) / (innerWidth / innerHeight);
+  const cover = r >= 0.74 && r <= 1.36, fo = s.fo || [0.5, 0.4];
+  fg.style.objectFit = cover ? 'cover' : 'contain';
+  fg.style.objectPosition = cover ? (fo[0] * 100) + '% ' + (fo[1] * 100) + '%' : '50% 50%';
+  fg.style.transformOrigin = (fo[0] * 100) + '% ' + (fo[1] * 100) + '%';
+}
+addEventListener('resize', () => live.forEach(v => fit(v.s, v.fg)));
+
+function draw() {
+  const t = au.currentTime;
+  D.slides.forEach((s, i) => {
+    const near = t >= s.t0 - 4 && t < s.t1;       // подгружаем фото за 4 секунды до показа
+    if (!near) { if (live.has(i)) { live.get(i).el.remove(); live.delete(i); } return; }
+    if (!live.has(i)) {
+      const v = make(s); live.set(i, v);
+      const after = [...live.entries()].filter(([k]) => k > i).sort((a, b) => a[0] - b[0])[0];
+      stage.insertBefore(v.el, after ? after[1].el : null);
+    }
+    const v = live.get(i);
+    let a = t < s.t0 ? 0 : (s.fin ? Math.min(1, (t - s.t0) / s.fin) : 1);
+    if (s.fout) a *= Math.max(0, Math.min(1, (s.t1 - t) / s.fout));
+    v.el.style.opacity = a;
+    const p = Math.max(0, Math.min(1, (t - s.t0) / (s.t1 - s.t0))), k = s.amp;
+    const move = s.m % 4;
+    let sc = 1 + k, tx = 0;
+    if (move === 0) sc = 1 + k * p; else if (move === 1) sc = 1 + k * (1 - p);
+    else tx = (p - 0.5) * k * 60 * (move === 2 ? 1 : -1);
+    v.fg.style.transform = 'translateX(' + tx.toFixed(3) + '%) scale(' + sc.toFixed(4) + ')';
+  });
+  stage.style.filter = 'saturate(' + interp(D.grade, t).toFixed(3) + ')';
+  const tt = D.title.t;
+  $('title').style.opacity = (t > tt[0] && t < tt[3]) ? Math.min(1, (t - tt[0]) / (tt[1] - tt[0]), (tt[3] - t) / (tt[3] - tt[2])) : 0;
+  $('fill').style.width = (t / D.duration * 100) + '%';
+  $('time').textContent = fmt(t);
+  $('pp').textContent = au.paused ? '▶' : '❚❚';
+  requestAnimationFrame(draw);
+}
+
+let uiTimer;
+function showUI() { document.body.classList.add('ui'); clearTimeout(uiTimer);
+  uiTimer = setTimeout(() => { if (!au.paused) document.body.classList.remove('ui'); }, 2500); }
+const toggle = () => { au.paused ? au.play() : au.pause(); showUI(); };
+function step(dir) {                      // листание: к началу следующего или предыдущего фото
+  const t = au.currentTime, starts = D.slides.map(s => s.t0 + s.fin);
+  let i = starts.findIndex(x => x > t + 0.05); if (i < 0) i = starts.length;
+  const j = dir > 0 ? i : i - 2;
+  au.currentTime = Math.max(0, starts[Math.max(0, Math.min(starts.length - 1, j))]); showUI();
+}
+$('go').onclick = () => { $('start').style.display = 'none'; au.currentTime = 0; au.play(); showUI(); };
+stage.onclick = toggle; $('pp').onclick = toggle;
+$('fs').onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+$('track').onclick = e => { const r = $('track').getBoundingClientRect();
+  au.currentTime = Math.max(0, Math.min(D.duration - 0.2, (e.clientX - r.left) / r.width * D.duration)); };
+addEventListener('mousemove', showUI);
+addEventListener('keydown', e => {
+  if ($('start').style.display !== 'none') return;
+  if (e.code === 'Space') { e.preventDefault(); toggle(); }
+  if (e.code === 'ArrowRight') step(1);
+  if (e.code === 'ArrowLeft') step(-1);
+  if (e.code === 'KeyF') $('fs').click();
+});
+au.onended = () => { $('start').style.display = 'flex'; $('go').textContent = 'Смотреть снова'; };
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>
